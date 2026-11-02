@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Konverter Dokumen ke Excel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow p-4">
+                    <h3 class="text-center mb-4">Sistem Ekstraktor Dokumen</h3>
+                    
+                    {% if pesan %}
+                        <div class="alert alert-success">{{ pesan }}</div>
+                    {% endif %}
+
+                    <form method="POST" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="file_dokumen" class="form-label">Pilih Banyak File Sekaligus:</label>
+                            <!-- Tambahkan event onclick="this.value=null" agar gampang reset, dan multiple untuk multi-file -->
+                            <input class="form-control" type="file" id="file_dokumen" name="file_dokumen" multiple required onclick="this.value=null">
+                            <div class="form-text text-muted mt-1">
+                                💡 <strong>Tips:</strong> Cukup klik kotaknya, lalu klik file pertama, geser (*drag*), atau klik file-file lain yang ingin dipilih tanpa perlu menekan tombol Ctrl.
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Upload & Ekstrak Semua ke Excel</button>
+                    </form>
+
+                    <hr class="my-4">
+                    
+                    <a href="/download" class="btn btn-success w-100">Download Rekap Excel (.xlsx)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
